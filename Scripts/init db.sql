@@ -1,7 +1,17 @@
-create database [Brazilian E-Commerce]
-use [Brazilian E-Commerce]
+-- Create database
+CREATE DATABASE [Brazilian E-Commerce];
+GO
 
-create schema bronze
-create schema silver
-create schema gold
+-- Switch to the database
+USE [Brazilian E-Commerce];
+GO
 
+-- Create schemas (Medallion layers)
+CREATE SCHEMA bronze;  -- Raw / landing layer
+GO
+
+CREATE SCHEMA silver;  -- Cleaned / standardized layer
+GO
+
+CREATE SCHEMA gold;    -- Curated / business layer
+GO
