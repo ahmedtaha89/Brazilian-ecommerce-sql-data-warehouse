@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE POWERMART SYSTEM "powrmart.dtd">
+<POWERMART CREATION_DATE="02/27/2026 03:40:44" REPOSITORY_VERSION="188.97">
+<REPOSITORY NAME="REP" VERSION="188" CODEPAGE="UTF-8" DATABASETYPE="Oracle">
+<FOLDER NAME="[Brazilian E-Commerce]" GROUP="" OWNER="Administrator" SHARED="NOTSHARED" DESCRIPTION="" PERMISSIONS="rwx---r--" UUID="7a0922ba-ef41-4d27-bc3a-5699cff794ad">
+    <SOURCE BUSINESSNAME ="" DATABASETYPE ="Microsoft SQL Server" DBDNAME ="Brazilian_E_Commerce" DESCRIPTION ="" NAME ="product_category_name_translation_raw" OBJECTVERSION ="1" OWNERNAME ="bronze" VERSIONNUMBER ="1">
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="1" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="0" LEVEL ="0" NAME ="product_category_name" NULLABLE ="NULL" OCCURS ="0" OFFSET ="0" PHYSICALLENGTH ="46" PHYSICALOFFSET ="0" PICTURETEXT ="" PRECISION ="46" SCALE ="0" USAGE_FLAGS =""/>
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="2" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="0" LEVEL ="0" NAME ="product_category_name_english" NULLABLE ="NULL" OCCURS ="0" OFFSET ="0" PHYSICALLENGTH ="39" PHYSICALOFFSET ="46" PICTURETEXT ="" PRECISION ="39" SCALE ="0" USAGE_FLAGS =""/>
+    </SOURCE>
+    <TARGET BUSINESSNAME ="" CONSTRAINT ="" DATABASETYPE ="Microsoft SQL Server" DESCRIPTION ="" NAME ="product_category_name_translation" OBJECTVERSION ="1" TABLEOPTIONS ="" VERSIONNUMBER ="1">
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="1" KEYTYPE ="NOT A KEY" NAME ="product_category_name" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="50" SCALE ="0"/>
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="2" KEYTYPE ="NOT A KEY" NAME ="product_category_name_english" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="50" SCALE ="0"/>
+    </TARGET>
+    <MAPPING DESCRIPTION ="" ISVALID ="YES" NAME ="m_product_category_name_translation_silver" OBJECTVERSION ="1" VERSIONNUMBER ="1">
+        <TRANSFORMATION DESCRIPTION ="" NAME ="SQ_product_category_name_translation_raw" OBJECTVERSION ="1" REUSABLE ="NO" TYPE ="Source Qualifier" VERSIONNUMBER ="1">
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_category_name" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="46" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_category_name_english" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="39" SCALE ="0"/>
+            <TABLEATTRIBUTE NAME ="Sql Query" VALUE =""/>
+            <TABLEATTRIBUTE NAME ="User Defined Join" VALUE =""/>
+            <TABLEATTRIBUTE NAME ="Source Filter" VALUE =""/>
+            <TABLEATTRIBUTE NAME ="Number Of Sorted Ports" VALUE ="0"/>
+            <TABLEATTRIBUTE NAME ="Tracing Level" VALUE ="Normal"/>
+            <TABLEATTRIBUTE NAME ="Select Distinct" VALUE ="NO"/>
+            <TABLEATTRIBUTE NAME ="Is Partitionable" VALUE ="NO"/>
+            <TABLEATTRIBUTE NAME ="Pre SQL" VALUE =""/>
+            <TABLEATTRIBUTE NAME ="Post SQL" VALUE =""/>
+            <TABLEATTRIBUTE NAME ="Output is deterministic" VALUE ="NO"/>
+            <TABLEATTRIBUTE NAME ="Output is repeatable" VALUE ="Never"/>
+        </TRANSFORMATION>
+        <TRANSFORMATION DESCRIPTION ="" NAME ="EXPTRANS" OBJECTVERSION ="1" REUSABLE ="NO" TYPE ="Expression" VERSIONNUMBER ="1">
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_category_name" PICTURETEXT ="" PORTTYPE ="INPUT" PRECISION ="50" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="ERROR(&apos;transformation error&apos;)" DESCRIPTION ="" EXPRESSION ="INITCAP(LTRIM(RTRIM(REPLACESTR(1,product_category_name,&apos;_&apos;,&apos; &apos;))))" EXPRESSIONTYPE ="GENERAL" NAME ="o_product_category_name" PICTURETEXT ="" PORTTYPE ="OUTPUT" PRECISION ="50" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_category_name_english" PICTURETEXT ="" PORTTYPE ="INPUT" PRECISION ="50" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="ERROR(&apos;transformation error&apos;)" DESCRIPTION ="" EXPRESSION ="INITCAP(LTRIM(RTRIM(REPLACESTR(1,product_category_name_english,&apos;_&apos;,&apos; &apos;))))" EXPRESSIONTYPE ="GENERAL" NAME ="o_product_category_name_english" PICTURETEXT ="" PORTTYPE ="OUTPUT" PRECISION ="50" SCALE ="0"/>
+            <TABLEATTRIBUTE NAME ="Tracing Level" VALUE ="Normal"/>
+        </TRANSFORMATION>
+        <INSTANCE DBDNAME ="Brazilian_E_Commerce" DESCRIPTION ="" NAME ="product_category_name_translation_raw" TRANSFORMATION_NAME ="product_category_name_translation_raw" TRANSFORMATION_TYPE ="Source Definition" TYPE ="SOURCE"/>
+        <INSTANCE DESCRIPTION ="" NAME ="SQ_product_category_name_translation_raw" REUSABLE ="NO" TRANSFORMATION_NAME ="SQ_product_category_name_translation_raw" TRANSFORMATION_TYPE ="Source Qualifier" TYPE ="TRANSFORMATION">
+            <ASSOCIATED_SOURCE_INSTANCE NAME ="product_category_name_translation_raw"/>
+        </INSTANCE>
+        <INSTANCE DESCRIPTION ="" NAME ="EXPTRANS" REUSABLE ="NO" TRANSFORMATION_NAME ="EXPTRANS" TRANSFORMATION_TYPE ="Expression" TYPE ="TRANSFORMATION"/>
+        <INSTANCE DESCRIPTION ="" NAME ="product_category_name_translation" TRANSFORMATION_NAME ="product_category_name_translation" TRANSFORMATION_TYPE ="Target Definition" TYPE ="TARGET"/>
+        <CONNECTOR FROMFIELD ="product_category_name" FROMINSTANCE ="product_category_name_translation_raw" FROMINSTANCETYPE ="Source Definition" TOFIELD ="product_category_name" TOINSTANCE ="SQ_product_category_name_translation_raw" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="product_category_name_english" FROMINSTANCE ="product_category_name_translation_raw" FROMINSTANCETYPE ="Source Definition" TOFIELD ="product_category_name_english" TOINSTANCE ="SQ_product_category_name_translation_raw" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="product_category_name" FROMINSTANCE ="SQ_product_category_name_translation_raw" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="product_category_name" TOINSTANCE ="EXPTRANS" TOINSTANCETYPE ="Expression"/>
+        <CONNECTOR FROMFIELD ="product_category_name_english" FROMINSTANCE ="SQ_product_category_name_translation_raw" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="product_category_name_english" TOINSTANCE ="EXPTRANS" TOINSTANCETYPE ="Expression"/>
+        <CONNECTOR FROMFIELD ="o_product_category_name" FROMINSTANCE ="EXPTRANS" FROMINSTANCETYPE ="Expression" TOFIELD ="product_category_name" TOINSTANCE ="product_category_name_translation" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="o_product_category_name_english" FROMINSTANCE ="EXPTRANS" FROMINSTANCETYPE ="Expression" TOFIELD ="product_category_name_english" TOINSTANCE ="product_category_name_translation" TOINSTANCETYPE ="Target Definition"/>
+        <TARGETLOADORDER ORDER ="1" TARGETINSTANCE ="product_category_name_translation"/>
+    </MAPPING>
+</FOLDER>
+</REPOSITORY>
+</POWERMART>

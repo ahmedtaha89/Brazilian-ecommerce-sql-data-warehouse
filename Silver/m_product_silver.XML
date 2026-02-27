@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE POWERMART SYSTEM "powrmart.dtd">
+<POWERMART CREATION_DATE="02/27/2026 03:40:31" REPOSITORY_VERSION="188.97">
+<REPOSITORY NAME="REP" VERSION="188" CODEPAGE="UTF-8" DATABASETYPE="Oracle">
+<FOLDER NAME="[Brazilian E-Commerce]" GROUP="" OWNER="Administrator" SHARED="NOTSHARED" DESCRIPTION="" PERMISSIONS="rwx---r--" UUID="7a0922ba-ef41-4d27-bc3a-5699cff794ad">
+    <SOURCE BUSINESSNAME ="" DATABASETYPE ="Microsoft SQL Server" DBDNAME ="Brazilian_E_Commerce" DESCRIPTION ="" NAME ="olist_products_raw" OBJECTVERSION ="1" OWNERNAME ="bronze" VERSIONNUMBER ="1">
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="1" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="0" LEVEL ="0" NAME ="product_id" NULLABLE ="NULL" OCCURS ="0" OFFSET ="0" PHYSICALLENGTH ="32" PHYSICALOFFSET ="0" PICTURETEXT ="" PRECISION ="32" SCALE ="0" USAGE_FLAGS =""/>
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="2" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="0" LEVEL ="0" NAME ="product_category_name" NULLABLE ="NULL" OCCURS ="0" OFFSET ="0" PHYSICALLENGTH ="46" PHYSICALOFFSET ="32" PICTURETEXT ="" PRECISION ="46" SCALE ="0" USAGE_FLAGS =""/>
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="decimal" DESCRIPTION ="" FIELDNUMBER ="3" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="4" LEVEL ="0" NAME ="product_name_lenght" NULLABLE ="NULL" OCCURS ="0" OFFSET ="0" PHYSICALLENGTH ="2" PHYSICALOFFSET ="78" PICTURETEXT ="" PRECISION ="2" SCALE ="0" USAGE_FLAGS =""/>
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="decimal" DESCRIPTION ="" FIELDNUMBER ="4" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="6" LEVEL ="0" NAME ="product_description_lenght" NULLABLE ="NULL" OCCURS ="0" OFFSET ="4" PHYSICALLENGTH ="4" PHYSICALOFFSET ="80" PICTURETEXT ="" PRECISION ="4" SCALE ="0" USAGE_FLAGS =""/>
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="decimal" DESCRIPTION ="" FIELDNUMBER ="5" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="4" LEVEL ="0" NAME ="product_photos_qty" NULLABLE ="NULL" OCCURS ="0" OFFSET ="10" PHYSICALLENGTH ="2" PHYSICALOFFSET ="84" PICTURETEXT ="" PRECISION ="2" SCALE ="0" USAGE_FLAGS =""/>
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="decimal" DESCRIPTION ="" FIELDNUMBER ="6" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="7" LEVEL ="0" NAME ="product_weight_g" NULLABLE ="NULL" OCCURS ="0" OFFSET ="14" PHYSICALLENGTH ="5" PHYSICALOFFSET ="86" PICTURETEXT ="" PRECISION ="5" SCALE ="0" USAGE_FLAGS =""/>
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="decimal" DESCRIPTION ="" FIELDNUMBER ="7" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="5" LEVEL ="0" NAME ="product_length_cm" NULLABLE ="NULL" OCCURS ="0" OFFSET ="21" PHYSICALLENGTH ="3" PHYSICALOFFSET ="91" PICTURETEXT ="" PRECISION ="3" SCALE ="0" USAGE_FLAGS =""/>
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="decimal" DESCRIPTION ="" FIELDNUMBER ="8" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="5" LEVEL ="0" NAME ="product_height_cm" NULLABLE ="NULL" OCCURS ="0" OFFSET ="26" PHYSICALLENGTH ="3" PHYSICALOFFSET ="94" PICTURETEXT ="" PRECISION ="3" SCALE ="0" USAGE_FLAGS =""/>
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="decimal" DESCRIPTION ="" FIELDNUMBER ="9" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="5" LEVEL ="0" NAME ="product_width_cm" NULLABLE ="NULL" OCCURS ="0" OFFSET ="31" PHYSICALLENGTH ="3" PHYSICALOFFSET ="97" PICTURETEXT ="" PRECISION ="3" SCALE ="0" USAGE_FLAGS =""/>
+    </SOURCE>
+    <TARGET BUSINESSNAME ="" CONSTRAINT ="" DATABASETYPE ="Microsoft SQL Server" DESCRIPTION ="" NAME ="Products" OBJECTVERSION ="1" TABLEOPTIONS ="" VERSIONNUMBER ="1">
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="1" KEYTYPE ="NOT A KEY" NAME ="product_id" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="32" SCALE ="0"/>
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="2" KEYTYPE ="NOT A KEY" NAME ="product_category_name" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="50" SCALE ="0"/>
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="int" DESCRIPTION ="" FIELDNUMBER ="3" KEYTYPE ="NOT A KEY" NAME ="product_name_lenght" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="10" SCALE ="0"/>
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="int" DESCRIPTION ="" FIELDNUMBER ="4" KEYTYPE ="NOT A KEY" NAME ="product_description_lenght" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="10" SCALE ="0"/>
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="int" DESCRIPTION ="" FIELDNUMBER ="5" KEYTYPE ="NOT A KEY" NAME ="product_photos_qty" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="10" SCALE ="0"/>
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="int" DESCRIPTION ="" FIELDNUMBER ="6" KEYTYPE ="NOT A KEY" NAME ="product_weight_g" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="10" SCALE ="0"/>
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="int" DESCRIPTION ="" FIELDNUMBER ="7" KEYTYPE ="NOT A KEY" NAME ="product_length_cm" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="10" SCALE ="0"/>
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="int" DESCRIPTION ="" FIELDNUMBER ="8" KEYTYPE ="NOT A KEY" NAME ="product_height_cm" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="10" SCALE ="0"/>
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="int" DESCRIPTION ="" FIELDNUMBER ="9" KEYTYPE ="NOT A KEY" NAME ="product_width_cm" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="10" SCALE ="0"/>
+    </TARGET>
+    <MAPPING DESCRIPTION ="" ISVALID ="YES" NAME ="m_product_silver" OBJECTVERSION ="1" VERSIONNUMBER ="1">
+        <TRANSFORMATION DESCRIPTION ="" NAME ="SQ_olist_products_raw" OBJECTVERSION ="1" REUSABLE ="NO" TYPE ="Source Qualifier" VERSIONNUMBER ="1">
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_id" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="32" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_category_name" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="46" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="decimal" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_name_lenght" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="2" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="decimal" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_description_lenght" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="4" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="decimal" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_photos_qty" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="2" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="decimal" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_weight_g" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="5" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="decimal" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_length_cm" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="3" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="decimal" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_height_cm" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="3" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="decimal" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_width_cm" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="3" SCALE ="0"/>
+            <TABLEATTRIBUTE NAME ="Sql Query" VALUE =""/>
+            <TABLEATTRIBUTE NAME ="User Defined Join" VALUE =""/>
+            <TABLEATTRIBUTE NAME ="Source Filter" VALUE =""/>
+            <TABLEATTRIBUTE NAME ="Number Of Sorted Ports" VALUE ="0"/>
+            <TABLEATTRIBUTE NAME ="Tracing Level" VALUE ="Normal"/>
+            <TABLEATTRIBUTE NAME ="Select Distinct" VALUE ="NO"/>
+            <TABLEATTRIBUTE NAME ="Is Partitionable" VALUE ="NO"/>
+            <TABLEATTRIBUTE NAME ="Pre SQL" VALUE =""/>
+            <TABLEATTRIBUTE NAME ="Post SQL" VALUE =""/>
+            <TABLEATTRIBUTE NAME ="Output is deterministic" VALUE ="NO"/>
+            <TABLEATTRIBUTE NAME ="Output is repeatable" VALUE ="Never"/>
+        </TRANSFORMATION>
+        <TRANSFORMATION DESCRIPTION ="" NAME ="EXPTRANS" OBJECTVERSION ="1" REUSABLE ="NO" TYPE ="Expression" VERSIONNUMBER ="1">
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" EXPRESSION ="product_id" EXPRESSIONTYPE ="GENERAL" NAME ="product_id" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="32" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_category_name" PICTURETEXT ="" PORTTYPE ="INPUT" PRECISION ="46" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="ERROR(&apos;transformation error&apos;)" DESCRIPTION ="" EXPRESSION ="INITCAP(LTRIM(RTRIM(REPLACESTR(1,product_category_name,&apos;_&apos;,&apos; &apos;))))" EXPRESSIONTYPE ="GENERAL" NAME ="o_product_category_name" PICTURETEXT ="" PORTTYPE ="OUTPUT" PRECISION ="50" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="decimal" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_name_lenght" PICTURETEXT ="" PORTTYPE ="INPUT" PRECISION ="2" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="integer" DEFAULTVALUE ="ERROR(&apos;transformation error&apos;)" DESCRIPTION ="" EXPRESSION ="IIF(&#xD;&#xA;ISNULL(product_name_lenght),0,&#xD;&#xA;product_name_lenght&#xD;&#xA;)" EXPRESSIONTYPE ="GENERAL" NAME ="o_product_name_lenght" PICTURETEXT ="" PORTTYPE ="OUTPUT" PRECISION ="10" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="decimal" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_description_lenght" PICTURETEXT ="" PORTTYPE ="INPUT" PRECISION ="4" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="integer" DEFAULTVALUE ="ERROR(&apos;transformation error&apos;)" DESCRIPTION ="" EXPRESSION ="IIF(&#xD;&#xA;ISNULL(product_description_lenght),0,&#xD;&#xA;product_description_lenght)" EXPRESSIONTYPE ="GENERAL" NAME ="o_product_description_lenght" PICTURETEXT ="" PORTTYPE ="OUTPUT" PRECISION ="10" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="decimal" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_photos_qty" PICTURETEXT ="" PORTTYPE ="INPUT" PRECISION ="2" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="integer" DEFAULTVALUE ="ERROR(&apos;transformation error&apos;)" DESCRIPTION ="" EXPRESSION ="IIF(&#xD;&#xA;ISNULL(product_photos_qty),0,&#xD;&#xA;product_photos_qty)" EXPRESSIONTYPE ="GENERAL" NAME ="o_product_photos_qty" PICTURETEXT ="" PORTTYPE ="OUTPUT" PRECISION ="10" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="decimal" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_weight_g" PICTURETEXT ="" PORTTYPE ="INPUT" PRECISION ="5" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="integer" DEFAULTVALUE ="ERROR(&apos;transformation error&apos;)" DESCRIPTION ="" EXPRESSION ="IIF(&#xD;&#xA;ISNULL(product_weight_g),0,&#xD;&#xA;product_weight_g)" EXPRESSIONTYPE ="GENERAL" NAME ="o_product_weight_g" PICTURETEXT ="" PORTTYPE ="OUTPUT" PRECISION ="10" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="decimal" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_length_cm" PICTURETEXT ="" PORTTYPE ="INPUT" PRECISION ="29" SCALE ="9"/>
+            <TRANSFORMFIELD DATATYPE ="integer" DEFAULTVALUE ="ERROR(&apos;transformation error&apos;)" DESCRIPTION ="" EXPRESSION ="IIF(&#xD;&#xA;ISNULL(product_length_cm),0,&#xD;&#xA;product_length_cm)" EXPRESSIONTYPE ="GENERAL" NAME ="o_product_length_cm" PICTURETEXT ="" PORTTYPE ="OUTPUT" PRECISION ="10" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="decimal" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_height_cm" PICTURETEXT ="" PORTTYPE ="INPUT" PRECISION ="3" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="integer" DEFAULTVALUE ="ERROR(&apos;transformation error&apos;)" DESCRIPTION ="" EXPRESSION ="IIF(&#xD;&#xA;ISNULL(product_height_cm),0,&#xD;&#xA;product_height_cm)" EXPRESSIONTYPE ="GENERAL" NAME ="o_product_height_cm" PICTURETEXT ="" PORTTYPE ="OUTPUT" PRECISION ="10" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="decimal" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="product_width_cm" PICTURETEXT ="" PORTTYPE ="INPUT" PRECISION ="3" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="integer" DEFAULTVALUE ="ERROR(&apos;transformation error&apos;)" DESCRIPTION ="" EXPRESSION ="IIF(&#xD;&#xA;ISNULL(product_width_cm),0,&#xD;&#xA;product_width_cm&#xD;&#xA;)" EXPRESSIONTYPE ="GENERAL" NAME ="o_product_width_cm" PICTURETEXT ="" PORTTYPE ="OUTPUT" PRECISION ="10" SCALE ="0"/>
+            <TABLEATTRIBUTE NAME ="Tracing Level" VALUE ="Normal"/>
+        </TRANSFORMATION>
+        <INSTANCE DBDNAME ="Brazilian_E_Commerce" DESCRIPTION ="" NAME ="olist_products_raw" TRANSFORMATION_NAME ="olist_products_raw" TRANSFORMATION_TYPE ="Source Definition" TYPE ="SOURCE"/>
+        <INSTANCE DESCRIPTION ="" NAME ="SQ_olist_products_raw" REUSABLE ="NO" TRANSFORMATION_NAME ="SQ_olist_products_raw" TRANSFORMATION_TYPE ="Source Qualifier" TYPE ="TRANSFORMATION">
+            <ASSOCIATED_SOURCE_INSTANCE NAME ="olist_products_raw"/>
+        </INSTANCE>
+        <INSTANCE DESCRIPTION ="" NAME ="EXPTRANS" REUSABLE ="NO" TRANSFORMATION_NAME ="EXPTRANS" TRANSFORMATION_TYPE ="Expression" TYPE ="TRANSFORMATION"/>
+        <INSTANCE DESCRIPTION ="" NAME ="Products" TRANSFORMATION_NAME ="Products" TRANSFORMATION_TYPE ="Target Definition" TYPE ="TARGET"/>
+        <CONNECTOR FROMFIELD ="product_id" FROMINSTANCE ="olist_products_raw" FROMINSTANCETYPE ="Source Definition" TOFIELD ="product_id" TOINSTANCE ="SQ_olist_products_raw" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="product_category_name" FROMINSTANCE ="olist_products_raw" FROMINSTANCETYPE ="Source Definition" TOFIELD ="product_category_name" TOINSTANCE ="SQ_olist_products_raw" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="product_name_lenght" FROMINSTANCE ="olist_products_raw" FROMINSTANCETYPE ="Source Definition" TOFIELD ="product_name_lenght" TOINSTANCE ="SQ_olist_products_raw" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="product_description_lenght" FROMINSTANCE ="olist_products_raw" FROMINSTANCETYPE ="Source Definition" TOFIELD ="product_description_lenght" TOINSTANCE ="SQ_olist_products_raw" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="product_photos_qty" FROMINSTANCE ="olist_products_raw" FROMINSTANCETYPE ="Source Definition" TOFIELD ="product_photos_qty" TOINSTANCE ="SQ_olist_products_raw" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="product_weight_g" FROMINSTANCE ="olist_products_raw" FROMINSTANCETYPE ="Source Definition" TOFIELD ="product_weight_g" TOINSTANCE ="SQ_olist_products_raw" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="product_length_cm" FROMINSTANCE ="olist_products_raw" FROMINSTANCETYPE ="Source Definition" TOFIELD ="product_length_cm" TOINSTANCE ="SQ_olist_products_raw" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="product_height_cm" FROMINSTANCE ="olist_products_raw" FROMINSTANCETYPE ="Source Definition" TOFIELD ="product_height_cm" TOINSTANCE ="SQ_olist_products_raw" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="product_width_cm" FROMINSTANCE ="olist_products_raw" FROMINSTANCETYPE ="Source Definition" TOFIELD ="product_width_cm" TOINSTANCE ="SQ_olist_products_raw" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="product_id" FROMINSTANCE ="SQ_olist_products_raw" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="product_id" TOINSTANCE ="EXPTRANS" TOINSTANCETYPE ="Expression"/>
+        <CONNECTOR FROMFIELD ="product_category_name" FROMINSTANCE ="SQ_olist_products_raw" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="product_category_name" TOINSTANCE ="EXPTRANS" TOINSTANCETYPE ="Expression"/>
+        <CONNECTOR FROMFIELD ="product_name_lenght" FROMINSTANCE ="SQ_olist_products_raw" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="product_name_lenght" TOINSTANCE ="EXPTRANS" TOINSTANCETYPE ="Expression"/>
+        <CONNECTOR FROMFIELD ="product_description_lenght" FROMINSTANCE ="SQ_olist_products_raw" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="product_description_lenght" TOINSTANCE ="EXPTRANS" TOINSTANCETYPE ="Expression"/>
+        <CONNECTOR FROMFIELD ="product_photos_qty" FROMINSTANCE ="SQ_olist_products_raw" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="product_photos_qty" TOINSTANCE ="EXPTRANS" TOINSTANCETYPE ="Expression"/>
+        <CONNECTOR FROMFIELD ="product_weight_g" FROMINSTANCE ="SQ_olist_products_raw" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="product_weight_g" TOINSTANCE ="EXPTRANS" TOINSTANCETYPE ="Expression"/>
+        <CONNECTOR FROMFIELD ="product_length_cm" FROMINSTANCE ="SQ_olist_products_raw" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="product_length_cm" TOINSTANCE ="EXPTRANS" TOINSTANCETYPE ="Expression"/>
+        <CONNECTOR FROMFIELD ="product_height_cm" FROMINSTANCE ="SQ_olist_products_raw" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="product_height_cm" TOINSTANCE ="EXPTRANS" TOINSTANCETYPE ="Expression"/>
+        <CONNECTOR FROMFIELD ="product_width_cm" FROMINSTANCE ="SQ_olist_products_raw" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="product_width_cm" TOINSTANCE ="EXPTRANS" TOINSTANCETYPE ="Expression"/>
+        <CONNECTOR FROMFIELD ="product_id" FROMINSTANCE ="EXPTRANS" FROMINSTANCETYPE ="Expression" TOFIELD ="product_id" TOINSTANCE ="Products" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="o_product_category_name" FROMINSTANCE ="EXPTRANS" FROMINSTANCETYPE ="Expression" TOFIELD ="product_category_name" TOINSTANCE ="Products" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="o_product_name_lenght" FROMINSTANCE ="EXPTRANS" FROMINSTANCETYPE ="Expression" TOFIELD ="product_name_lenght" TOINSTANCE ="Products" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="o_product_description_lenght" FROMINSTANCE ="EXPTRANS" FROMINSTANCETYPE ="Expression" TOFIELD ="product_description_lenght" TOINSTANCE ="Products" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="o_product_photos_qty" FROMINSTANCE ="EXPTRANS" FROMINSTANCETYPE ="Expression" TOFIELD ="product_photos_qty" TOINSTANCE ="Products" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="o_product_weight_g" FROMINSTANCE ="EXPTRANS" FROMINSTANCETYPE ="Expression" TOFIELD ="product_weight_g" TOINSTANCE ="Products" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="o_product_length_cm" FROMINSTANCE ="EXPTRANS" FROMINSTANCETYPE ="Expression" TOFIELD ="product_length_cm" TOINSTANCE ="Products" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="o_product_height_cm" FROMINSTANCE ="EXPTRANS" FROMINSTANCETYPE ="Expression" TOFIELD ="product_height_cm" TOINSTANCE ="Products" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="o_product_width_cm" FROMINSTANCE ="EXPTRANS" FROMINSTANCETYPE ="Expression" TOFIELD ="product_width_cm" TOINSTANCE ="Products" TOINSTANCETYPE ="Target Definition"/>
+        <TARGETLOADORDER ORDER ="1" TARGETINSTANCE ="Products"/>
+    </MAPPING>
+</FOLDER>
+</REPOSITORY>
+</POWERMART>
