@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE POWERMART SYSTEM "powrmart.dtd">
+<POWERMART CREATION_DATE="02/27/2026 02:04:31" REPOSITORY_VERSION="188.97">
+<REPOSITORY NAME="REP" VERSION="188" CODEPAGE="UTF-8" DATABASETYPE="Oracle">
+<FOLDER NAME="[Brazilian E-Commerce]" GROUP="" OWNER="Administrator" SHARED="NOTSHARED" DESCRIPTION="" PERMISSIONS="rwx---r--" UUID="7a0922ba-ef41-4d27-bc3a-5699cff794ad">
+    <SOURCE BUSINESSNAME ="" DATABASETYPE ="Microsoft SQL Server" DBDNAME ="Brazilian_E_Commerce" DESCRIPTION ="" NAME ="olist_geolocation_raw" OBJECTVERSION ="1" OWNERNAME ="bronze" VERSIONNUMBER ="1">
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="decimal" DESCRIPTION ="" FIELDNUMBER ="1" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="7" LEVEL ="0" NAME ="geolocation_zip_code_prefix" NULLABLE ="NULL" OCCURS ="0" OFFSET ="0" PHYSICALLENGTH ="5" PHYSICALOFFSET ="0" PICTURETEXT ="" PRECISION ="5" SCALE ="0" USAGE_FLAGS =""/>
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="2" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="0" LEVEL ="0" NAME ="geolocation_lat" NULLABLE ="NULL" OCCURS ="0" OFFSET ="7" PHYSICALLENGTH ="19" PHYSICALOFFSET ="5" PICTURETEXT ="" PRECISION ="19" SCALE ="0" USAGE_FLAGS =""/>
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="3" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="0" LEVEL ="0" NAME ="geolocation_lng" NULLABLE ="NULL" OCCURS ="0" OFFSET ="7" PHYSICALLENGTH ="19" PHYSICALOFFSET ="24" PICTURETEXT ="" PRECISION ="19" SCALE ="0" USAGE_FLAGS =""/>
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="4" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="0" LEVEL ="0" NAME ="geolocation_city" NULLABLE ="NULL" OCCURS ="0" OFFSET ="7" PHYSICALLENGTH ="10" PHYSICALOFFSET ="43" PICTURETEXT ="" PRECISION ="10" SCALE ="0" USAGE_FLAGS =""/>
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="5" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="0" LEVEL ="0" NAME ="geolocation_state" NULLABLE ="NULL" OCCURS ="0" OFFSET ="7" PHYSICALLENGTH ="2" PHYSICALOFFSET ="53" PICTURETEXT ="" PRECISION ="2" SCALE ="0" USAGE_FLAGS =""/>
+    </SOURCE>
+    <TARGET BUSINESSNAME ="silver" CONSTRAINT ="" DATABASETYPE ="Microsoft SQL Server" DESCRIPTION ="" NAME ="olist_geolocation" OBJECTVERSION ="1" TABLEOPTIONS ="" VERSIONNUMBER ="1">
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="int" DESCRIPTION ="" FIELDNUMBER ="1" KEYTYPE ="NOT A KEY" NAME ="geolocation_zip_code_prefix" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="10" SCALE ="0"/>
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="decimal" DESCRIPTION ="" FIELDNUMBER ="2" KEYTYPE ="NOT A KEY" NAME ="geolocation_lat" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="29" SCALE ="9"/>
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="decimal" DESCRIPTION ="" FIELDNUMBER ="3" KEYTYPE ="NOT A KEY" NAME ="geolocation_lng" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="29" SCALE ="9"/>
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="4" KEYTYPE ="NOT A KEY" NAME ="geolocation_city" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="30" SCALE ="0"/>
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="5" KEYTYPE ="NOT A KEY" NAME ="geolocation_state" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="2" SCALE ="0"/>
+    </TARGET>
+    <MAPPING DESCRIPTION ="" ISVALID ="YES" NAME ="m_olist_geolocation_silver" OBJECTVERSION ="1" VERSIONNUMBER ="1">
+        <TRANSFORMATION DESCRIPTION ="" NAME ="SQ_olist_geolocation_raw" OBJECTVERSION ="1" REUSABLE ="NO" TYPE ="Source Qualifier" VERSIONNUMBER ="1">
+            <TRANSFORMFIELD DATATYPE ="decimal" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="geolocation_zip_code_prefix" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="5" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="geolocation_lat" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="19" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="geolocation_lng" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="19" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="geolocation_city" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="10" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="geolocation_state" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="2" SCALE ="0"/>
+            <TABLEATTRIBUTE NAME ="Sql Query" VALUE ="SELECT DISTINCT olist_geolocation_raw.geolocation_zip_code_prefix, olist_geolocation_raw.geolocation_lat, olist_geolocation_raw.geolocation_lng, olist_geolocation_raw.geolocation_city, olist_geolocation_raw.geolocation_state &#xD;&#xA;FROM&#xD;&#xA; bronze.olist_geolocation_raw"/>
+            <TABLEATTRIBUTE NAME ="User Defined Join" VALUE =""/>
+            <TABLEATTRIBUTE NAME ="Source Filter" VALUE =""/>
+            <TABLEATTRIBUTE NAME ="Number Of Sorted Ports" VALUE ="0"/>
+            <TABLEATTRIBUTE NAME ="Tracing Level" VALUE ="Normal"/>
+            <TABLEATTRIBUTE NAME ="Select Distinct" VALUE ="YES"/>
+            <TABLEATTRIBUTE NAME ="Is Partitionable" VALUE ="NO"/>
+            <TABLEATTRIBUTE NAME ="Pre SQL" VALUE =""/>
+            <TABLEATTRIBUTE NAME ="Post SQL" VALUE =""/>
+            <TABLEATTRIBUTE NAME ="Output is deterministic" VALUE ="NO"/>
+            <TABLEATTRIBUTE NAME ="Output is repeatable" VALUE ="Never"/>
+        </TRANSFORMATION>
+        <TRANSFORMATION DESCRIPTION ="" NAME ="EXP_CLEAN_GEO" OBJECTVERSION ="1" REUSABLE ="NO" TYPE ="Expression" VERSIONNUMBER ="1">
+            <TRANSFORMFIELD DATATYPE ="decimal" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="geolocation_zip_code_prefix" PICTURETEXT ="" PORTTYPE ="INPUT" PRECISION ="5" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="integer" DEFAULTVALUE ="ERROR(&apos;transformation error&apos;)" DESCRIPTION ="" EXPRESSION ="IIF(&#xD;&#xA;  ISNULL(RTRIM(geolocation_zip_code_prefix))&#xD;&#xA;  OR LENGTH(RTRIM(geolocation_zip_code_prefix)) &lt; 4&#xD;&#xA;  OR NOT IS_NUMBER(RTRIM(geolocation_zip_code_prefix)),&#xD;&#xA;  NULL,&#xD;&#xA;  RTRIM(geolocation_zip_code_prefix)&#xD;&#xA;)" EXPRESSIONTYPE ="GENERAL" NAME ="o_geolocation_zip_code_prefix" PICTURETEXT ="" PORTTYPE ="OUTPUT" PRECISION ="10" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="decimal" DEFAULTVALUE ="" DESCRIPTION ="" EXPRESSION ="geolocation_lat" EXPRESSIONTYPE ="GENERAL" NAME ="geolocation_lat" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="29" SCALE ="9"/>
+            <TRANSFORMFIELD DATATYPE ="decimal" DEFAULTVALUE ="" DESCRIPTION ="" EXPRESSION ="geolocation_lng" EXPRESSIONTYPE ="GENERAL" NAME ="geolocation_lng" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="29" SCALE ="9"/>
+            <TRANSFORMFIELD DATATYPE ="decimal" DEFAULTVALUE ="ERROR(&apos;transformation error&apos;)" DESCRIPTION ="" EXPRESSION ="IIF(&#xD;&#xA;  ISNULL(geolocation_lat)&#xD;&#xA;  OR geolocation_lat &lt; -90&#xD;&#xA;  OR geolocation_lat &gt; 90,&#xD;&#xA;  NULL,&#xD;&#xA;  geolocation_lat&#xD;&#xA;)" EXPRESSIONTYPE ="GENERAL" NAME ="o_lat_clean" PICTURETEXT ="" PORTTYPE ="OUTPUT" PRECISION ="10" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="decimal" DEFAULTVALUE ="ERROR(&apos;transformation error&apos;)" DESCRIPTION ="" EXPRESSION ="IIF(&#xD;&#xA;  ISNULL(geolocation_lng)&#xD;&#xA;  OR geolocation_lng &lt; -180&#xD;&#xA;  OR geolocation_lng &gt; 180,&#xD;&#xA;  NULL,&#xD;&#xA;  geolocation_lng&#xD;&#xA;)" EXPRESSIONTYPE ="GENERAL" NAME ="o_lng_clean" PICTURETEXT ="" PORTTYPE ="OUTPUT" PRECISION ="29" SCALE ="9"/>
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" EXPRESSION ="geolocation_city" EXPRESSIONTYPE ="GENERAL" NAME ="geolocation_city" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="30" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" EXPRESSION ="geolocation_state" EXPRESSIONTYPE ="GENERAL" NAME ="geolocation_state" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="2" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="ERROR(&apos;transformation error&apos;)" DESCRIPTION ="" EXPRESSION ="IIF(&#xD;&#xA;  ISNULL(LTRIM(RTRIM(geolocation_state)))&#xD;&#xA;  OR LENGTH(LTRIM(RTRIM(geolocation_state))) &lt;&gt; 2,&#xD;&#xA;  NULL,&#xD;&#xA;  UPPER(LTRIM(RTRIM(geolocation_state)))&#xD;&#xA;)" EXPRESSIONTYPE ="GENERAL" NAME ="o_geolocation_state" PICTURETEXT ="" PORTTYPE ="OUTPUT" PRECISION ="2" SCALE ="0"/>
+            <TABLEATTRIBUTE NAME ="Tracing Level" VALUE ="Normal"/>
+        </TRANSFORMATION>
+        <INSTANCE DESCRIPTION ="" NAME ="olist_geolocation" TRANSFORMATION_NAME ="olist_geolocation" TRANSFORMATION_TYPE ="Target Definition" TYPE ="TARGET"/>
+        <INSTANCE DBDNAME ="Brazilian_E_Commerce" DESCRIPTION ="" NAME ="olist_geolocation_raw" TRANSFORMATION_NAME ="olist_geolocation_raw" TRANSFORMATION_TYPE ="Source Definition" TYPE ="SOURCE"/>
+        <INSTANCE DESCRIPTION ="" NAME ="SQ_olist_geolocation_raw" REUSABLE ="NO" TRANSFORMATION_NAME ="SQ_olist_geolocation_raw" TRANSFORMATION_TYPE ="Source Qualifier" TYPE ="TRANSFORMATION">
+            <ASSOCIATED_SOURCE_INSTANCE NAME ="olist_geolocation_raw"/>
+        </INSTANCE>
+        <INSTANCE DESCRIPTION ="" NAME ="EXP_CLEAN_GEO" REUSABLE ="NO" TRANSFORMATION_NAME ="EXP_CLEAN_GEO" TRANSFORMATION_TYPE ="Expression" TYPE ="TRANSFORMATION"/>
+        <CONNECTOR FROMFIELD ="o_geolocation_zip_code_prefix" FROMINSTANCE ="EXP_CLEAN_GEO" FROMINSTANCETYPE ="Expression" TOFIELD ="geolocation_zip_code_prefix" TOINSTANCE ="olist_geolocation" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="o_geolocation_state" FROMINSTANCE ="EXP_CLEAN_GEO" FROMINSTANCETYPE ="Expression" TOFIELD ="geolocation_state" TOINSTANCE ="olist_geolocation" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="geolocation_city" FROMINSTANCE ="EXP_CLEAN_GEO" FROMINSTANCETYPE ="Expression" TOFIELD ="geolocation_city" TOINSTANCE ="olist_geolocation" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="o_lng_clean" FROMINSTANCE ="EXP_CLEAN_GEO" FROMINSTANCETYPE ="Expression" TOFIELD ="geolocation_lng" TOINSTANCE ="olist_geolocation" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="o_lat_clean" FROMINSTANCE ="EXP_CLEAN_GEO" FROMINSTANCETYPE ="Expression" TOFIELD ="geolocation_lat" TOINSTANCE ="olist_geolocation" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="geolocation_zip_code_prefix" FROMINSTANCE ="olist_geolocation_raw" FROMINSTANCETYPE ="Source Definition" TOFIELD ="geolocation_zip_code_prefix" TOINSTANCE ="SQ_olist_geolocation_raw" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="geolocation_lat" FROMINSTANCE ="olist_geolocation_raw" FROMINSTANCETYPE ="Source Definition" TOFIELD ="geolocation_lat" TOINSTANCE ="SQ_olist_geolocation_raw" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="geolocation_lng" FROMINSTANCE ="olist_geolocation_raw" FROMINSTANCETYPE ="Source Definition" TOFIELD ="geolocation_lng" TOINSTANCE ="SQ_olist_geolocation_raw" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="geolocation_city" FROMINSTANCE ="olist_geolocation_raw" FROMINSTANCETYPE ="Source Definition" TOFIELD ="geolocation_city" TOINSTANCE ="SQ_olist_geolocation_raw" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="geolocation_state" FROMINSTANCE ="olist_geolocation_raw" FROMINSTANCETYPE ="Source Definition" TOFIELD ="geolocation_state" TOINSTANCE ="SQ_olist_geolocation_raw" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="geolocation_zip_code_prefix" FROMINSTANCE ="SQ_olist_geolocation_raw" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="geolocation_zip_code_prefix" TOINSTANCE ="EXP_CLEAN_GEO" TOINSTANCETYPE ="Expression"/>
+        <CONNECTOR FROMFIELD ="geolocation_lat" FROMINSTANCE ="SQ_olist_geolocation_raw" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="geolocation_lat" TOINSTANCE ="EXP_CLEAN_GEO" TOINSTANCETYPE ="Expression"/>
+        <CONNECTOR FROMFIELD ="geolocation_lng" FROMINSTANCE ="SQ_olist_geolocation_raw" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="geolocation_lng" TOINSTANCE ="EXP_CLEAN_GEO" TOINSTANCETYPE ="Expression"/>
+        <CONNECTOR FROMFIELD ="geolocation_city" FROMINSTANCE ="SQ_olist_geolocation_raw" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="geolocation_city" TOINSTANCE ="EXP_CLEAN_GEO" TOINSTANCETYPE ="Expression"/>
+        <CONNECTOR FROMFIELD ="geolocation_state" FROMINSTANCE ="SQ_olist_geolocation_raw" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="geolocation_state" TOINSTANCE ="EXP_CLEAN_GEO" TOINSTANCETYPE ="Expression"/>
+        <TARGETLOADORDER ORDER ="1" TARGETINSTANCE ="olist_geolocation"/>
+        <ERPINFO/>
+    </MAPPING>
+</FOLDER>
+</REPOSITORY>
+</POWERMART>

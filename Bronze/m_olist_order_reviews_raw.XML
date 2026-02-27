@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE POWERMART SYSTEM "powrmart.dtd">
+<POWERMART CREATION_DATE="02/27/2026 02:03:45" REPOSITORY_VERSION="188.97">
+<REPOSITORY NAME="REP" VERSION="188" CODEPAGE="UTF-8" DATABASETYPE="Oracle">
+<FOLDER NAME="[Brazilian E-Commerce]" GROUP="" OWNER="Administrator" SHARED="NOTSHARED" DESCRIPTION="" PERMISSIONS="rwx---r--" UUID="7a0922ba-ef41-4d27-bc3a-5699cff794ad">
+    <SOURCE BUSINESSNAME ="" DATABASETYPE ="Flat File" DBDNAME ="FlatFile" DESCRIPTION ="" NAME ="olist_order_reviews_dataset" OBJECTVERSION ="1" OWNERNAME ="" VERSIONNUMBER ="1">
+        <FLATFILE CODEPAGE ="MS1252" CONSECDELIMITERSASONE ="NO" DELIMITED ="YES" DELIMITERS ="," ESCAPE_CHARACTER ="" KEEPESCAPECHAR ="NO" LINESEQUENTIAL ="NO" MULTIDELIMITERSASAND ="NO" NULLCHARTYPE ="ASCII" NULL_CHARACTER ="*" PADBYTES ="1" QUOTE_CHARACTER ="DOUBLE" REPEATABLE ="NO" ROWDELIMITER ="0" SHIFTSENSITIVEDATA ="NO" SKIPROWS ="1" STRIPTRAILINGBLANKS ="NO"/>
+        <TABLEATTRIBUTE NAME ="Base Table Name" VALUE =""/>
+        <TABLEATTRIBUTE NAME ="Search Specification" VALUE =""/>
+        <TABLEATTRIBUTE NAME ="Sort Specification" VALUE =""/>
+        <TABLEATTRIBUTE NAME ="Datetime Format" VALUE ="A  19 mm/dd/yyyy hh24:mi:ss"/>
+        <TABLEATTRIBUTE NAME ="Thousand Separator" VALUE ="None"/>
+        <TABLEATTRIBUTE NAME ="Decimal Separator" VALUE ="."/>
+        <TABLEATTRIBUTE NAME ="Add Currently Processed Flat File Name Port" VALUE ="NO"/>
+        <TABLEATTRIBUTE NAME ="Source TimeStamp" VALUE =""/>
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="string" DESCRIPTION ="" FIELDNUMBER ="1" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="60" LEVEL ="0" NAME ="review_id" NULLABLE ="NULL" OCCURS ="0" OFFSET ="0" PHYSICALLENGTH ="60" PHYSICALOFFSET ="0" PICTURETEXT ="" PRECISION ="60" SCALE ="0" USAGE_FLAGS =""/>
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="string" DESCRIPTION ="" FIELDNUMBER ="2" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="60" LEVEL ="0" NAME ="order_id" NULLABLE ="NULL" OCCURS ="0" OFFSET ="60" PHYSICALLENGTH ="60" PHYSICALOFFSET ="60" PICTURETEXT ="" PRECISION ="60" SCALE ="0" USAGE_FLAGS =""/>
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="string" DESCRIPTION ="" FIELDNUMBER ="3" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="10" LEVEL ="0" NAME ="review_score" NULLABLE ="NULL" OCCURS ="0" OFFSET ="120" PHYSICALLENGTH ="10" PHYSICALOFFSET ="120" PICTURETEXT ="" PRECISION ="10" SCALE ="0" USAGE_FLAGS =""/>
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="string" DESCRIPTION ="" FIELDNUMBER ="4" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="26" LEVEL ="0" NAME ="review_comment_title" NULLABLE ="NULL" OCCURS ="0" OFFSET ="130" PHYSICALLENGTH ="26" PHYSICALOFFSET ="130" PICTURETEXT ="" PRECISION ="26" SCALE ="0" USAGE_FLAGS =""/>
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="string" DESCRIPTION ="" FIELDNUMBER ="5" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="208" LEVEL ="0" NAME ="review_comment_message" NULLABLE ="NULL" OCCURS ="0" OFFSET ="156" PHYSICALLENGTH ="208" PHYSICALOFFSET ="156" PICTURETEXT ="" PRECISION ="208" SCALE ="0" USAGE_FLAGS =""/>
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="string" DESCRIPTION ="" FIELDNUMBER ="6" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="29" LEVEL ="0" NAME ="review_creation_date" NULLABLE ="NULL" OCCURS ="0" OFFSET ="364" PHYSICALLENGTH ="29" PHYSICALOFFSET ="364" PICTURETEXT ="" PRECISION ="29" SCALE ="0" USAGE_FLAGS =""/>
+        <SOURCEFIELD BUSINESSNAME ="" DATATYPE ="string" DESCRIPTION ="" FIELDNUMBER ="7" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="50" LEVEL ="0" NAME ="review_answer_timestamp" NULLABLE ="NULL" OCCURS ="0" OFFSET ="393" PHYSICALLENGTH ="50" PHYSICALOFFSET ="393" PICTURETEXT ="" PRECISION ="50" SCALE ="0" USAGE_FLAGS =""/>
+    </SOURCE>
+    <TARGET BUSINESSNAME ="" CONSTRAINT ="" DATABASETYPE ="Microsoft SQL Server" DESCRIPTION ="" NAME ="olist_order_reviews_raw" OBJECTVERSION ="1" TABLEOPTIONS ="" VERSIONNUMBER ="1">
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="1" KEYTYPE ="NOT A KEY" NAME ="review_id" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="60" SCALE ="0"/>
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="2" KEYTYPE ="NOT A KEY" NAME ="order_id" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="60" SCALE ="0"/>
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="3" KEYTYPE ="NOT A KEY" NAME ="review_score" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="10" SCALE ="0"/>
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="4" KEYTYPE ="NOT A KEY" NAME ="review_comment_title" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="26" SCALE ="0"/>
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="5" KEYTYPE ="NOT A KEY" NAME ="review_comment_message" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="208" SCALE ="0"/>
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="6" KEYTYPE ="NOT A KEY" NAME ="review_creation_date" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="29" SCALE ="0"/>
+        <TARGETFIELD BUSINESSNAME ="" DATATYPE ="varchar" DESCRIPTION ="" FIELDNUMBER ="7" KEYTYPE ="NOT A KEY" NAME ="review_answer_timestamp" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="50" SCALE ="0"/>
+    </TARGET>
+    <MAPPING DESCRIPTION ="" ISVALID ="YES" NAME ="m_olist_order_reviews_raw" OBJECTVERSION ="1" VERSIONNUMBER ="1">
+        <TRANSFORMATION DESCRIPTION ="" NAME ="SQ_olist_order_reviews_dataset" OBJECTVERSION ="1" REUSABLE ="NO" TYPE ="Source Qualifier" VERSIONNUMBER ="1">
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="review_id" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="60" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="order_id" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="60" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="review_score" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="10" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="review_comment_title" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="26" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="review_comment_message" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="208" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="review_creation_date" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="29" SCALE ="0"/>
+            <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="review_answer_timestamp" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="50" SCALE ="0"/>
+            <TABLEATTRIBUTE NAME ="Sql Query" VALUE =""/>
+            <TABLEATTRIBUTE NAME ="User Defined Join" VALUE =""/>
+            <TABLEATTRIBUTE NAME ="Source Filter" VALUE =""/>
+            <TABLEATTRIBUTE NAME ="Number Of Sorted Ports" VALUE ="0"/>
+            <TABLEATTRIBUTE NAME ="Tracing Level" VALUE ="Normal"/>
+            <TABLEATTRIBUTE NAME ="Is Partitionable" VALUE ="NO"/>
+            <TABLEATTRIBUTE NAME ="Pre SQL" VALUE =""/>
+            <TABLEATTRIBUTE NAME ="Post SQL" VALUE =""/>
+            <TABLEATTRIBUTE NAME ="Output is deterministic" VALUE ="NO"/>
+            <TABLEATTRIBUTE NAME ="Output is repeatable" VALUE ="Never"/>
+        </TRANSFORMATION>
+        <INSTANCE DESCRIPTION ="" NAME ="olist_order_reviews_raw" TRANSFORMATION_NAME ="olist_order_reviews_raw" TRANSFORMATION_TYPE ="Target Definition" TYPE ="TARGET"/>
+        <INSTANCE DBDNAME ="FlatFile" DESCRIPTION ="" NAME ="olist_order_reviews_dataset" TRANSFORMATION_NAME ="olist_order_reviews_dataset" TRANSFORMATION_TYPE ="Source Definition" TYPE ="SOURCE"/>
+        <INSTANCE DESCRIPTION ="" NAME ="SQ_olist_order_reviews_dataset" REUSABLE ="NO" TRANSFORMATION_NAME ="SQ_olist_order_reviews_dataset" TRANSFORMATION_TYPE ="Source Qualifier" TYPE ="TRANSFORMATION">
+            <ASSOCIATED_SOURCE_INSTANCE NAME ="olist_order_reviews_dataset"/>
+        </INSTANCE>
+        <CONNECTOR FROMFIELD ="review_id" FROMINSTANCE ="SQ_olist_order_reviews_dataset" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="review_id" TOINSTANCE ="olist_order_reviews_raw" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="order_id" FROMINSTANCE ="SQ_olist_order_reviews_dataset" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="order_id" TOINSTANCE ="olist_order_reviews_raw" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="review_score" FROMINSTANCE ="SQ_olist_order_reviews_dataset" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="review_score" TOINSTANCE ="olist_order_reviews_raw" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="review_comment_title" FROMINSTANCE ="SQ_olist_order_reviews_dataset" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="review_comment_title" TOINSTANCE ="olist_order_reviews_raw" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="review_comment_message" FROMINSTANCE ="SQ_olist_order_reviews_dataset" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="review_comment_message" TOINSTANCE ="olist_order_reviews_raw" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="review_creation_date" FROMINSTANCE ="SQ_olist_order_reviews_dataset" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="review_creation_date" TOINSTANCE ="olist_order_reviews_raw" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="review_answer_timestamp" FROMINSTANCE ="SQ_olist_order_reviews_dataset" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="review_answer_timestamp" TOINSTANCE ="olist_order_reviews_raw" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="review_id" FROMINSTANCE ="olist_order_reviews_dataset" FROMINSTANCETYPE ="Source Definition" TOFIELD ="review_id" TOINSTANCE ="SQ_olist_order_reviews_dataset" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="order_id" FROMINSTANCE ="olist_order_reviews_dataset" FROMINSTANCETYPE ="Source Definition" TOFIELD ="order_id" TOINSTANCE ="SQ_olist_order_reviews_dataset" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="review_score" FROMINSTANCE ="olist_order_reviews_dataset" FROMINSTANCETYPE ="Source Definition" TOFIELD ="review_score" TOINSTANCE ="SQ_olist_order_reviews_dataset" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="review_comment_title" FROMINSTANCE ="olist_order_reviews_dataset" FROMINSTANCETYPE ="Source Definition" TOFIELD ="review_comment_title" TOINSTANCE ="SQ_olist_order_reviews_dataset" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="review_comment_message" FROMINSTANCE ="olist_order_reviews_dataset" FROMINSTANCETYPE ="Source Definition" TOFIELD ="review_comment_message" TOINSTANCE ="SQ_olist_order_reviews_dataset" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="review_creation_date" FROMINSTANCE ="olist_order_reviews_dataset" FROMINSTANCETYPE ="Source Definition" TOFIELD ="review_creation_date" TOINSTANCE ="SQ_olist_order_reviews_dataset" TOINSTANCETYPE ="Source Qualifier"/>
+        <CONNECTOR FROMFIELD ="review_answer_timestamp" FROMINSTANCE ="olist_order_reviews_dataset" FROMINSTANCETYPE ="Source Definition" TOFIELD ="review_answer_timestamp" TOINSTANCE ="SQ_olist_order_reviews_dataset" TOINSTANCETYPE ="Source Qualifier"/>
+        <TARGETLOADORDER ORDER ="1" TARGETINSTANCE ="olist_order_reviews_raw"/>
+        <ERPINFO/>
+    </MAPPING>
+</FOLDER>
+</REPOSITORY>
+</POWERMART>
