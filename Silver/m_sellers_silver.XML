@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE POWERMART SYSTEM "powrmart.dtd">
-<POWERMART CREATION_DATE="02/27/2026 03:40:19" REPOSITORY_VERSION="188.97">
+<POWERMART CREATION_DATE="03/09/2026 00:18:49" REPOSITORY_VERSION="188.97">
 <REPOSITORY NAME="REP" VERSION="188" CODEPAGE="UTF-8" DATABASETYPE="Oracle">
 <FOLDER NAME="[Brazilian E-Commerce]" GROUP="" OWNER="Administrator" SHARED="NOTSHARED" DESCRIPTION="" PERMISSIONS="rwx---r--" UUID="7a0922ba-ef41-4d27-bc3a-5699cff794ad">
     <SOURCE BUSINESSNAME ="" DATABASETYPE ="Microsoft SQL Server" DBDNAME ="Brazilian_E_Commerce" DESCRIPTION ="" NAME ="olist_sellers_raw" OBJECTVERSION ="1" OWNERNAME ="bronze" VERSIONNUMBER ="1">
@@ -41,12 +41,16 @@
             <TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" EXPRESSION ="seller_state" EXPRESSIONTYPE ="GENERAL" NAME ="seller_state" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="2" SCALE ="0"/>
             <TABLEATTRIBUTE NAME ="Tracing Level" VALUE ="Normal"/>
         </TRANSFORMATION>
+        <INSTANCE DESCRIPTION ="" NAME ="Sellers" TRANSFORMATION_NAME ="Sellers" TRANSFORMATION_TYPE ="Target Definition" TYPE ="TARGET"/>
         <INSTANCE DBDNAME ="Brazilian_E_Commerce" DESCRIPTION ="" NAME ="olist_sellers_raw" TRANSFORMATION_NAME ="olist_sellers_raw" TRANSFORMATION_TYPE ="Source Definition" TYPE ="SOURCE"/>
         <INSTANCE DESCRIPTION ="" NAME ="SQ_olist_sellers_raw" REUSABLE ="NO" TRANSFORMATION_NAME ="SQ_olist_sellers_raw" TRANSFORMATION_TYPE ="Source Qualifier" TYPE ="TRANSFORMATION">
             <ASSOCIATED_SOURCE_INSTANCE NAME ="olist_sellers_raw"/>
         </INSTANCE>
         <INSTANCE DESCRIPTION ="" NAME ="EXPTRANS" REUSABLE ="NO" TRANSFORMATION_NAME ="EXPTRANS" TRANSFORMATION_TYPE ="Expression" TYPE ="TRANSFORMATION"/>
-        <INSTANCE DESCRIPTION ="" NAME ="Sellers" TRANSFORMATION_NAME ="Sellers" TRANSFORMATION_TYPE ="Target Definition" TYPE ="TARGET"/>
+        <CONNECTOR FROMFIELD ="seller_id" FROMINSTANCE ="EXPTRANS" FROMINSTANCETYPE ="Expression" TOFIELD ="seller_id" TOINSTANCE ="Sellers" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="seller_zip_code_prefix" FROMINSTANCE ="EXPTRANS" FROMINSTANCETYPE ="Expression" TOFIELD ="seller_zip_code_prefix" TOINSTANCE ="Sellers" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="o_seller_city" FROMINSTANCE ="EXPTRANS" FROMINSTANCETYPE ="Expression" TOFIELD ="o_seller_city" TOINSTANCE ="Sellers" TOINSTANCETYPE ="Target Definition"/>
+        <CONNECTOR FROMFIELD ="seller_state" FROMINSTANCE ="EXPTRANS" FROMINSTANCETYPE ="Expression" TOFIELD ="seller_state" TOINSTANCE ="Sellers" TOINSTANCETYPE ="Target Definition"/>
         <CONNECTOR FROMFIELD ="seller_id" FROMINSTANCE ="olist_sellers_raw" FROMINSTANCETYPE ="Source Definition" TOFIELD ="seller_id" TOINSTANCE ="SQ_olist_sellers_raw" TOINSTANCETYPE ="Source Qualifier"/>
         <CONNECTOR FROMFIELD ="seller_zip_code_prefix" FROMINSTANCE ="olist_sellers_raw" FROMINSTANCETYPE ="Source Definition" TOFIELD ="seller_zip_code_prefix" TOINSTANCE ="SQ_olist_sellers_raw" TOINSTANCETYPE ="Source Qualifier"/>
         <CONNECTOR FROMFIELD ="seller_city" FROMINSTANCE ="olist_sellers_raw" FROMINSTANCETYPE ="Source Definition" TOFIELD ="seller_city" TOINSTANCE ="SQ_olist_sellers_raw" TOINSTANCETYPE ="Source Qualifier"/>
@@ -55,11 +59,8 @@
         <CONNECTOR FROMFIELD ="seller_zip_code_prefix" FROMINSTANCE ="SQ_olist_sellers_raw" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="seller_zip_code_prefix" TOINSTANCE ="EXPTRANS" TOINSTANCETYPE ="Expression"/>
         <CONNECTOR FROMFIELD ="seller_city" FROMINSTANCE ="SQ_olist_sellers_raw" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="seller_city" TOINSTANCE ="EXPTRANS" TOINSTANCETYPE ="Expression"/>
         <CONNECTOR FROMFIELD ="seller_state" FROMINSTANCE ="SQ_olist_sellers_raw" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="seller_state" TOINSTANCE ="EXPTRANS" TOINSTANCETYPE ="Expression"/>
-        <CONNECTOR FROMFIELD ="seller_id" FROMINSTANCE ="EXPTRANS" FROMINSTANCETYPE ="Expression" TOFIELD ="seller_id" TOINSTANCE ="Sellers" TOINSTANCETYPE ="Target Definition"/>
-        <CONNECTOR FROMFIELD ="seller_zip_code_prefix" FROMINSTANCE ="EXPTRANS" FROMINSTANCETYPE ="Expression" TOFIELD ="seller_zip_code_prefix" TOINSTANCE ="Sellers" TOINSTANCETYPE ="Target Definition"/>
-        <CONNECTOR FROMFIELD ="o_seller_city" FROMINSTANCE ="EXPTRANS" FROMINSTANCETYPE ="Expression" TOFIELD ="o_seller_city" TOINSTANCE ="Sellers" TOINSTANCETYPE ="Target Definition"/>
-        <CONNECTOR FROMFIELD ="seller_state" FROMINSTANCE ="EXPTRANS" FROMINSTANCETYPE ="Expression" TOFIELD ="seller_state" TOINSTANCE ="Sellers" TOINSTANCETYPE ="Target Definition"/>
         <TARGETLOADORDER ORDER ="1" TARGETINSTANCE ="Sellers"/>
+        <ERPINFO/>
     </MAPPING>
 </FOLDER>
 </REPOSITORY>

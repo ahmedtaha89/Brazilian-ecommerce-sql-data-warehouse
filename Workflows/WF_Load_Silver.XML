@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE POWERMART SYSTEM "powrmart.dtd">
-<POWERMART CREATION_DATE="02/27/2026 03:42:27" REPOSITORY_VERSION="188.97">
+<POWERMART CREATION_DATE="03/09/2026 00:17:06" REPOSITORY_VERSION="188.97">
 <REPOSITORY NAME="REP" VERSION="188" CODEPAGE="UTF-8" DATABASETYPE="Oracle">
 <FOLDER NAME="[Brazilian E-Commerce]" GROUP="" OWNER="Administrator" SHARED="NOTSHARED" DESCRIPTION="" PERMISSIONS="rwx---r--" UUID="7a0922ba-ef41-4d27-bc3a-5699cff794ad">
     <CONFIG DESCRIPTION ="Default session configuration object" ISDEFAULT ="YES" NAME ="default_session_config" VERSIONNUMBER ="1">
@@ -54,9 +54,11 @@
                 <ATTRIBUTE NAME ="Table Name Prefix" VALUE ="silver"/>
                 <ATTRIBUTE NAME ="Pre SQL" VALUE ="INSERT INTO dbo.ETL_AUDIT_LOG (WORKFLOW_NAME, SESSION_NAME, START_TIME, STATUS, HOSTNAME)&#xD;&#xA;VALUES (&apos;$PMWorkflowName&apos;, &apos;$PMSessionName&apos;, SYSDATETIME(), &apos;RUNNING&apos;, @@SERVERNAME);"/>
                 <ATTRIBUTE NAME ="Post SQL" VALUE ="UPDATE dbo.ETL_AUDIT_LOG&#xD;&#xA;SET END_TIME = SYSDATETIME(),&#xD;&#xA;    STATUS = &apos;SUCCESS&apos;&#xD;&#xA;WHERE AUDIT_ID = (&#xD;&#xA;    SELECT MAX(AUDIT_ID)&#xD;&#xA;    FROM dbo.ETL_AUDIT_LOG&#xD;&#xA;    WHERE WORKFLOW_NAME = &apos;$PMWorkflowName&apos;&#xD;&#xA;      AND SESSION_NAME  = &apos;$PMSessionName&apos;&#xD;&#xA;      AND STATUS = &apos;RUNNING&apos;&#xD;&#xA;      AND END_TIME IS NULL&#xD;&#xA;);"/>
+                <ATTRIBUTE NAME ="Target Table Name" VALUE ="customers"/>
             </SESSTRANSFORMATIONINST>
             <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="0" SINSTANCENAME ="olist_customers_raw" STAGE ="0" TRANSFORMATIONNAME ="olist_customers_raw" TRANSFORMATIONTYPE ="Source Definition">
                 <ATTRIBUTE NAME ="Owner Name" VALUE ="bronze"/>
+                <ATTRIBUTE NAME ="Source Table Name" VALUE ="customers_raw"/>
             </SESSTRANSFORMATIONINST>
             <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="YES" PARTITIONTYPE ="PASS THROUGH" PIPELINE ="1" SINSTANCENAME ="SQ_olist_customers_raw" STAGE ="2" TRANSFORMATIONNAME ="SQ_olist_customers_raw" TRANSFORMATIONTYPE ="Source Qualifier"/>
             <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="1" SINSTANCENAME ="Filter_Null_Invaild_Len_Customer" STAGE ="2" TRANSFORMATIONNAME ="Filter_Null_Invaild_Len_Customer" TRANSFORMATIONTYPE ="Filter">
@@ -278,9 +280,11 @@
         <SESSION DESCRIPTION ="" ISVALID ="YES" MAPPINGNAME ="m_order_payments_silver" NAME ="s_Order_Payments" REUSABLE ="NO" SORTORDER ="Binary" VERSIONNUMBER ="1">
             <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="YES" PARTITIONTYPE ="PASS THROUGH" PIPELINE ="1" SINSTANCENAME ="olist_order_payments" STAGE ="1" TRANSFORMATIONNAME ="olist_order_payments" TRANSFORMATIONTYPE ="Target Definition">
                 <ATTRIBUTE NAME ="Table Name Prefix" VALUE ="silver"/>
+                <ATTRIBUTE NAME ="Target Table Name" VALUE ="order_payments"/>
             </SESSTRANSFORMATIONINST>
             <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="0" SINSTANCENAME ="olist_order_payments_raw" STAGE ="0" TRANSFORMATIONNAME ="olist_order_payments_raw" TRANSFORMATIONTYPE ="Source Definition">
                 <ATTRIBUTE NAME ="Owner Name" VALUE ="bronze"/>
+                <ATTRIBUTE NAME ="Source Table Name" VALUE ="order_payments_raw"/>
             </SESSTRANSFORMATIONINST>
             <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="YES" PARTITIONTYPE ="PASS THROUGH" PIPELINE ="1" SINSTANCENAME ="SQ_olist_order_payments_raw" STAGE ="2" TRANSFORMATIONNAME ="SQ_olist_order_payments_raw" TRANSFORMATIONTYPE ="Source Qualifier"/>
             <SESSTRANSFORMATIONINST ISREPARTITIONPOINT ="NO" PIPELINE ="1" SINSTANCENAME ="EXP_order_payments" STAGE ="2" TRANSFORMATIONNAME ="EXP_order_payments" TRANSFORMATIONTYPE ="Expression">
@@ -704,7 +708,6 @@
         <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Total number of transformation errors" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Order_Reviews.TotalTransErrors" USERDEFINED ="NO"/>
         <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="First error code" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Order_Reviews.FirstErrorCode" USERDEFINED ="NO"/>
         <WORKFLOWVARIABLE DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="First error message" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Order_Reviews.FirstErrorMsg" USERDEFINED ="NO"/>
-        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="1" DESCRIPTION ="" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$$BATCH_ID" USERDEFINED ="YES"/>
         <WORKFLOWVARIABLE DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="The time this task started" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Orders.StartTime" USERDEFINED ="NO"/>
         <WORKFLOWVARIABLE DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="The time this task completed" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Orders.EndTime" USERDEFINED ="NO"/>
         <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Status of this task&apos;s execution" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Orders.Status" USERDEFINED ="NO"/>
@@ -757,6 +760,7 @@
         <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="Total number of transformation errors" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Products.TotalTransErrors" USERDEFINED ="NO"/>
         <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="" DESCRIPTION ="First error code" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Products.FirstErrorCode" USERDEFINED ="NO"/>
         <WORKFLOWVARIABLE DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="First error message" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$s_Products.FirstErrorMsg" USERDEFINED ="NO"/>
+        <WORKFLOWVARIABLE DATATYPE ="integer" DEFAULTVALUE ="1" DESCRIPTION ="" ISNULL ="NO" ISPERSISTENT ="NO" NAME ="$$BATCH_ID" USERDEFINED ="YES"/>
         <ATTRIBUTE NAME ="Parameter Filename" VALUE =""/>
         <ATTRIBUTE NAME ="Write Backward Compatible Workflow Log File" VALUE ="NO"/>
         <ATTRIBUTE NAME ="Workflow Log File Name" VALUE ="WF_Load_Silver.log"/>
